@@ -101,7 +101,7 @@ function box.Render(self)
   self.drawing.PointC = points[3]
   self.drawing.PointD = points[4]
 
-  if self.isTarget and self.isTargetTime+5 < time() then self.isTarget = false end
+  if self.isTarget and self.isTargetTime+3 < time() then self.isTarget = false end
 
   self.drawing.Color = self.isTarget and Color3.fromRGB(255,165,0) or (self.isEnemy and Color3.fromRGB(255,0,0) or Color3.fromRGB(0,255,0))
 end
