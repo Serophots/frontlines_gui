@@ -1,3 +1,6 @@
+--Entire ESP module based off of Stefanuk12's ESP: https://github.com/Stefanuk12/ROBLOX
+--Modified & condensed to work with Frontlines
+
 local globalSettings = {
   enabled = true
 }
@@ -12,7 +15,7 @@ local utils = {} do
 
   end
 
-  function utils.BoxCorners(character)
+  function utils.BoxCorners(character) --based entirely off of Stefanuk12's ESP (condensed)
     local CameraPosition = camera.CFrame.Position
     local CF, Size = character:GetBoundingBox()
 
