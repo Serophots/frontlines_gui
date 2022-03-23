@@ -1,4 +1,4 @@
-loadstring(game:HttpGet("https://raw.githubusercontent.com/Serophots/frontlines_gui/main/game_vars.lua"))(true)
+loadstring(game:HttpGet("https://raw.githubusercontent.com/Serophots/frontlines_gui/main/game_vars.lua"))()
 local box, boxSettings = loadstring(game:HttpGet("https://raw.githubusercontent.com/Serophots/frontlines_gui/main/box.lua"))()
 local UI = loadstring(game:HttpGet("https://raw.githubusercontent.com/Serophots/my-uilib/main/uilib_main.lua"))()
 UI = UI.init("Frontlines", "v1.0.0", "Serophots", "FRL")
