@@ -11,9 +11,6 @@ local utils = {} do
     for i,v in pairs(data) do obj[i] = v end
     return obj
   end
-  function utils.something(character)
-
-  end
 
   function utils.BoxCorners(character) --based entirely off of Stefanuk12's ESP (condensed)
     local CameraPosition = camera.CFrame.Position
@@ -71,8 +68,7 @@ function box.new(pID, isEnemy)
       Color = Color3.fromRGB(255,255,255),
       Thickness = 3,
       Filled = false
-    }),
-    -- isEnemy = isEnemy
+    })
   }, box)
 end
 
