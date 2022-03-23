@@ -49,6 +49,13 @@ local utils = {} do
 
     return points2d
   end
+
+  function utils.isDead(pID)
+    return _G.globals.gbl_sol_healths[pID] == 0
+  end
+  function utils.isAlive(pID)
+    return not utils.isDead(pID)
+  end
 end
 
 local box = {}
@@ -81,6 +88,7 @@ function box.Render(self)
 
   if not character then self.drawing.Visible = false return end
   if not globalSettings.enabled then self.drawing.Visible = false return end
+  if utils.isDead(self.pID) then self.drawing.Visible = false return end
   self.drawing.Visible = true
 
   local points = utils.BoxCorners(character)
