@@ -64,6 +64,12 @@ RunService.RenderStepped:Connect(function()
   circle.Position = UIS:GetMouseLocation()
   circle.Visible = UI.values["Aim"]["Silent Aim"]["Show FOV circle"]
   circle.Radius = UI.values["Aim"]["Silent Aim"]["FOV Radius"]
+
+  if UI.values["Visuals"]["ESP"]["Enable ESP"] then
+    for pID,box in pairs(esp) do
+      box:Render()
+    end
+  end
 end)
 
 --Utility functions for silent aim
@@ -116,9 +122,10 @@ local function getClosestPlayer(chest)
 end
 
 --Silent aim hook
+local enableSilentAim = UI.values["Aim"]["Silent Aim"]
 local __index
 __index = hookmetamethod(game, "__index", function(Self, key)
-  if not checkcaller() and key == "CFrame" and UI.values["Aim"]["Silent Aim"]["Enable Silent Aim"] then
+  if not checkcaller() and key == "CFrame" and enableSilentAim["Enable Silent Aim"] then
     local chest = _G.globals.fpv_sol_instances.chest
     if Self == chest and chest ~= nil then
       local target, dist = getClosestPlayer(chest)
@@ -159,15 +166,6 @@ do --ESP
   end)
   _G.utils.gbus.add_task(S_SET_CLI_TEAM, taskID(), DEFAULT_PRIO, function(pID, team)
     if team == 0 or esp[pID] == nil then return end
-    -- esp[pID]:setIsEnemy(_G.globals.cli_teams[cliID] ~= team)
     esp[pID].isEnemy = _G.globals.cli_teams[cliID] ~= team
   end)
 end
-
-RunService.RenderStepped:Connect(function()
-  if UI.values["Visuals"]["ESP"]["Enable ESP"] then
-    for pID,box in pairs(esp) do
-      box:Render()
-    end
-  end
-end)

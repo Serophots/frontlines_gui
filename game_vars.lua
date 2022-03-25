@@ -18,6 +18,7 @@ for i,v in pairs(getgc(true)) do
                 g[i2] = v
                 _G[i2] = v
                 _c = _c + 1
+                break
             end
         end
     end

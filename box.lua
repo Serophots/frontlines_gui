@@ -65,7 +65,7 @@ box.isEnemy = false
 box.isTarget = false
 box.isTargetTime = 0
 
-function box.new(pID, isEnemy)
+function box.new(pID)
   return setmetatable({
     pID = pID,
     drawing = utils.CreateDrawing("Quad", {
